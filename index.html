@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>CasinoJS</title>	
+</head>
+<body>
+   
+    <h1>CasinoJS</h1>
+    
+    <button onclick="CasinoJS()">Play The Game!</button>
+    
+    <!-- general depencency modules, those modules are not strictly related to the current application -->
+    <script src="libs/unit-tests.js"></script>
+    
+    <!-- we should include all the modules files before the game's main logic -->
+    <script src="modules/casino-wallet.js"></script>
+    <script src="modules/casino-games.js"></script>
+    <script src="modules/casino-exit.js"></script>
+    <script src="modules/casino-tests.js"></script>
+    
+    <!-- application entry point module -->
+    <script src="casino.js"></script>
+    
+    <script>        
+        
+        /**
+         * Explicit Development Entry Point
+         *
+         * As the application is growing up we may need to change which funciton to start
+         * at run time just to be able to narrow down the manual testing.
+         *
+         * This is a perfect and normal practice during a development session and it should
+         * dirve the code style that you produce in order to allow to do MANUAL TESTING IN ISOLATION
+         * (it's a big word to mean that you avoid to always run the entire application)
+         *
+         */
+        
+        function developmentEntryPoint(testsAreOk) {
+            
+            // if one or more tests fails we notify the user and stop the execution.
+            // we don't want out App to run if anything under unit testing is not perfect!
+            if (!testsAreOk) {
+                alert('ATTENTION: some unit tests failed!');
+                return;
+            }
+            
+            CasinoJS();
+        
+        }
+        
+        
+        
+        
+        
+        /**
+         * Unit Testing CasinoJS
+         */
+        
+        /**
+         * UNIT TEST REFACTORING
+         *
+         * As the number of tests start to be quite big I decided to move all of them into
+         * a specific module which I called "casino-tests.js" so the code here in the
+         * entry point keep more simple.
+         *
+         * the second refactoring here is to just chain the "developmentEntryPoint" method as
+         * callback of the unit-test framework.
+         *
+         * To me this code is just much more clean than before!
+         */
+        
+        startUnitTesting();
+        
+        testCasinoJS();
+        
+        stopUnitTesting(developmentEntryPoint);
+        
+    </script>
+    
+</body>
+</html>
