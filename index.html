@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>CasinoJS</title>	
+</head>
+<body>
+   
+    <h1>CasinoJS</h1>
+    
+    <button onclick="CasinoJS()">Play CasinoJS!</button>
+    
+    <script>
+        /**
+         * This is the basic implementation of the high UI level of the CasinoJS.
+         * each time the user clicks on the "Play CasinoJS" the game's main logic runs.
+         * 
+         * -- At this level it is not important what this logic does --
+         *
+         * The only thing that matter is that the "CasinoJS" function represents the
+         * full application.
+         * 
+         * Here below we are just faking it!
+         */
+        function CasinoJS() {
+            alert('We will play a real Casino experience!');
+        }
+        
+        
+        
+        /**
+         * It is also important to understand that we can run the CasinoJS (or a sub module of it)
+         * without waiting for the user's action.
+         * 
+         * We can just invoke the part of the application that we want to TEST IN ISOLATION:
+         * (just uncomment the following line)
+         */
+        // CasinoJS();
+    </script>
+    
+</body>
+</html>
