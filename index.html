@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>CasinoJS</title>	
+</head>
+<body>
+   
+    <h1>CasinoJS</h1>
+    
+    <button onclick="CasinoJS()">Play The Game!</button>
+    
+    <script src="casino.js"></script>
+    <script src="unit-tests.js"></script>
+    
+    <script>        
+        /**
+         * Unit Testing CasinoJS
+         * we modify the development automated application startup by introducing a list
+         * of tests to run before to run the entire application.
+         * 
+         * If all the tests passes the the application can be executed and manually tested
+         * within the browser and user interaction.
+         *
+         */
+        
+        startUnitTesting();
+        
+        
+        /**
+         * Here we place all our automated tests.
+         * the scope of those tests is to try small portions of the application IN ISOLATION.
+         * 
+         * Single functions that works with a well known list of arguments are the best to test!
+         * (so then you can model your development around the possibility to easly test stuff!)
+         */
+        assert(userCanPlay(100) === true, "user can play with a wallet of 100");
+        assert(userCanPlay(0) === false, "user can't play with a wallet of 0");
+        
+        
+        /**
+         * When we finish to do testing we run a post-test logic which
+         * will start the application only if all the tests passes.
+         *
+         * ---
+         * This is a great DEVELOPMENT IMPROVEMENT because if we break
+         * some tests during the development we will be immediately alerted
+         * and the application won't start!
+         * ---
+         */
+        stopUnitTesting(function(result) {
+            if (result) {
+                CasinoJS();
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>
