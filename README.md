@@ -9,7 +9,7 @@ You can use whatever schema language you want, I personally use an hybrid schema
 
 Here is a schematic representation of the CasinoJS game from the highest possible point of view:
 
-[The Big Picture](./001-the-big-picture.jpg)
+![The Big Picture](./001-the-big-picture.jpg)
 
 There are any UI details, there are no rules, we don't even talk on what games we need into the casino... 
 
