@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>CasinoJS</title>	
+</head>
+<body>
+   
+    <h1>CasinoJS</h1>
+    
+    <button onclick="CasinoJS()">Play The Game!</button>
+    
+    <!-- general depencency modules, those modules are not strictly related to the current application -->
+    <script src="libs/unit-tests.js"></script>
+    
+    <!-- we should include all the modules files before the game's main logic -->
+    <script src="modules/casino-wallet.js"></script>
+    <script src="modules/casino-games.js"></script>
+    <script src="modules/casino-exit.js"></script>
+    
+    <!-- application entry point module -->
+    <script src="casino.js"></script>
+    
+    <script>        
+        /**
+         * Unit Testing CasinoJS
+         */
+        
+        startUnitTesting();
+        
+        assert(userCanPlay(100) === true, "user can play with a wallet of 100");
+        assert(userCanPlay(0) === false, "user can't play with a wallet of 0");
+        
+        stopUnitTesting(function(result) {
+            if (result) {
+                CasinoJS();
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>
